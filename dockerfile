@@ -1,4 +1,4 @@
-FROM efrecon/ts-node:9.1.1
+FROM efrecon/ts-node:10.9.2
 
 COPY . ./
 

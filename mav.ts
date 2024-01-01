@@ -8,17 +8,17 @@ import { InfluxDB, Point, ClientOptions } from '@influxdata/influxdb-client'
 
 import { parse } from 'ts-command-line-args';
 
-interface ICopyFilesArguments{
+interface ICopyFilesArguments {
     mavlink_address: string;
     mavlink_port: number;
     influxdb_string: string;
     influxdb_token: string;
- }
+}
 
 // args typed as ICopyFilesArguments
 export const args = parse<ICopyFilesArguments>({
     mavlink_address: String,
-    mavlink_port:Number,
+    mavlink_port: Number,
     influxdb_string: String,
     influxdb_token: String,
 });
@@ -62,5 +62,5 @@ reader.on('data', packet => {
         } catch (error) {
             console.error(`Error processing data:`, error);
         }
-    }   
+    }
 })
