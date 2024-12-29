@@ -1,2 +1,11 @@
-/node_modules
-/package-lock.json
+node_modules
+package-lock.json
+grafana/plugins
+grafana/csv
+grafana/png
+grafana.db
+grafana/pdf
+influx/influx-configs
+influx/influxd.bolt
+influx/influxd.sqlite
+influx/engine

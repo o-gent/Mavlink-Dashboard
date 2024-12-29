@@ -1,11 +1,24 @@
-# Mavlink to InfluxDB
+# Mavlink Grafana Telemetry Dashboard
 
-Some code to convert mavlink packets to influxDB datapoints!
+This project links together a few tools to diplay live mavlink data in Grafana which is an enterprise data visualisation tool. Grafana allows extremely flexible data display & transformations, rapidly! 
+
+How it works:
+- mavlink2influx module reads in MAVLINK data and converts it to an influxDB submission
+- InfluxDB stores the data in a database
+- Grafana reads in the data from InfluxDB
+
+Although this is slighly resource intensive, it is extremely flexible and leverages powerful industry standard tools.
+
 
 ## Useage
 
-Docker build . -t mavlink2influx
+1. Installer docker
 
-docker run --rm mavlink2influx --mavlink_address='host.docker.internal' --mavlink_port=5763 --influxdb_string='http://host.docker.internal:8086' --influxdb_token=$env:INFLUXDB_TOKEN
+2. Set Mavlink settings in mavlink2influx/dockerfile (MAVLINK_ADDRESS & MAVLINK_PORT)
 
-ts-node ./mav.ts  --mavlink_address='host.docker.internal' --mavlink_port=5763 --influxdb_string='http://host.docker.internal:8086' --influxdb_token=$env:INFLUXDB_TOKEN
+3. Run compose
+```
+docker compose up
+```
+
+4. Open "localhost:3000"

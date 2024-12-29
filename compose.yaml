@@ -1,0 +1,35 @@
+services:
+    mavlink:
+        build: ./mavlink2influx
+        restart: unless-stopped
+        network_mode: "host"
+        depends_on:
+            - influx
+            - grafana
+
+    influx:
+        image: influxdb:2.7-alpine
+        restart: unless-stopped
+        # extra_hosts:
+        # - "host.docker.internal:host-gateway"      
+        ports:
+            - 8086:8086
+        environment:
+            DOCKER_INFLUXDB_INIT_MODE: setup
+            DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: SECURETOKEN
+            DOCKER_INFLUXDB_INIT_ORG: uav
+            DOCKER_INFLUXDB_INIT_BUCKET: default
+            DOCKER_INFLUXDB_INIT_USERNAME: admin
+            DOCKER_INFLUXDB_INIT_PASSWORD: adminadmin
+        volumes:
+            - ./influx:/var/lib/influxdb2
+            - ./influx:/etc/influxdb2
+
+    grafana:
+        build: ./grafana
+        restart: unless-stopped
+        ports:
+        - 3000:3000
+        volumes: 
+        - ./grafana:/var/lib/grafana
+        - ./grafana/grafana.ini:/etc/grafana/grafana.ini

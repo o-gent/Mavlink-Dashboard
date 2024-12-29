@@ -1,0 +1,11 @@
+FROM efrecon/ts-node:10.9.2
+
+COPY . ./
+
+# Set environment variables 
+ENV MAVLINK_ADDRESS=host.docker.internal 
+ENV MAVLINK_PORT=5763 
+ENV INFLUXDB_STRING=http://host.docker.internal:8086 
+ENV INFLUXDB_TOKEN=SECURETOKEN
+
+ENTRYPOINT ["ts-node", "mav.ts"]
