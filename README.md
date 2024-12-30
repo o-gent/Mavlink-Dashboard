@@ -37,9 +37,12 @@ docker compose up
 ```
 4. Open "localhost:3000" in your web browser, that should take you to the Grafana dashboard
 5. configure grafana data source, in the left menu (Connections -> Add new connection)
+
 <img src="./assets/InfluxDB settings.png" width="50%">
+
 6. Setup a dashboard, there's an "example_dashboard.json" in the root of this repo
-![dashboard](/assets/import_dashboard.png)
+
+![dashboard](./assets/import_dashboard.png)
 
 
 7. watch data !
