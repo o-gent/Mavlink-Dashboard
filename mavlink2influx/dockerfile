@@ -1,6 +1,18 @@
-FROM efrecon/ts-node:10.9.2
+FROM node:18-alpine
+ARG TS_NODE_VERSION=10.7.0
+
+WORKDIR /src/app
+
+RUN \
+    npm update -g npm && \
+    npm install --location=global typescript && \
+    npm install --location=global ts-node@${TS_NODE_VERSION} && \
+    npm install --location=global tslib @types/node && \
+    ts-node --version
 
 COPY . ./
+
+RUN npm install
 
 # Set environment variables 
 ENV MAVLINK_ADDRESS=host.docker.internal 
