@@ -17,12 +17,6 @@ How it works:
 
 Although this is slightly resource intensive, it is extremely flexible and leverages powerful industry standard tools.
 
-Contact **admin@beyondrobotix.com** for any help creating dashboards and working with Mavlink data. We can also assist with engineering technical work. 
-
-[Beyond Robotix Website](https://www.beyondrobotix.com/)
-
-<img src="./assets/logo.png" width="50%">
-
 
 ## Usage
 
